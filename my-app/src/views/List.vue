@@ -35,14 +35,17 @@
 						</template>
 					</v-simple-table>
 				</v-col>
-				<v-col cols="6" v-else>
-					<div class="d-flex justify-center align-center">
-						<span>Список задач пуст.</span><i class="material-icons">free_breakfast</i>
-					</div>
-				</v-col>
-			</v-row>
-		</v-container>
-	</div>
+				<v-col
+				cols="12"
+				sm="6"
+				v-else>
+				<div class="d-flex justify-center align-center">
+					<span>Список задач пуст.</span><i class="material-icons">free_breakfast</i>
+				</div>
+			</v-col>
+		</v-row>
+	</v-container>
+</div>
 </template>
 
 <script>

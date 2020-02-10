@@ -5,7 +5,8 @@
 			<form @submit.prevent="submitHandler">
 				<v-row class="justify-center">
 					<v-col
-					cols="6"
+					cols="12"
+					 sm="6"
 					>
 					<v-text-field
 					label="Название задачи"
@@ -15,7 +16,8 @@
 			</v-row>
 			<v-row class="justify-center">
 				<v-col
-				cols="6"
+					cols="12"
+					 sm="6"
 				>
 				<v-textarea
 				name="input-7-1"
@@ -29,7 +31,10 @@
 		</v-row>
 
 		<v-row class="justify-center">
-			<v-col cols="6">
+			<v-col
+					cols="12"
+					 sm="6"
+			 >
 				<v-menu
 				ref="menu1"
 				v-model="menu1"

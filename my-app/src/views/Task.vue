@@ -5,7 +5,8 @@
 			<form @submit.prevent="submitEditor">
 				<v-row class="justify-center">
 					<v-col
-					cols="6"
+					cols="12"
+					sm="6"
 					>
 					<v-text-field
 					label="Название задачи"
@@ -15,7 +16,8 @@
 			</v-row>
 			<v-row class="justify-center">
 				<v-col
-				cols="6"
+				cols="12"
+				sm="6"
 				>
 				<v-textarea
 				name="input-7-1"
@@ -28,35 +30,38 @@
 			</v-col>
 		</v-row>
 		<v-row class="justify-center">
-			<v-col cols="6">
-				<v-menu
-				ref="menu1"
-				v-model="menu1"
-				:close-on-content-click="false"
-				transition="scale-transition"
-				offset-y
-				max-width="290px"
-				min-width="290px"
-				>
-				<template v-slot:activator="{ on }">
-					<v-text-field
-					v-model="dateFormatted"
-					label="Срок задачи"
-					persistent-hint
-					prepend-icon="event"
-					@blur="date = parseDate(dateFormatted)"
-					v-on="on"
-					></v-text-field>
-				</template>
-				<v-date-picker v-model="date" locale="ru-RU" first-day-of-week="1" no-title @input="menu1 = false"></v-date-picker>
-			</v-menu>
-			<div class="my-2">
-				<v-btn v-if="task.status !== 'выполнено'" middle dark type="submit" color="primary mx-4">Обновить</v-btn>
-				<v-btn v-if="task.status !== 'выполнено'" middle dark type="button"  @click="completeTask" color="success mx-4">Завершить</v-btn>
-				<v-btn middle dark type="button"  @click="deleteTask" color="error mx-4">Удалить</v-btn>
-			</div>
-		</v-col>
-	</v-row>
+			<v-col
+			cols="12"
+			sm="6"
+			>
+			<v-menu
+			ref="menu1"
+			v-model="menu1"
+			:close-on-content-click="false"
+			transition="scale-transition"
+			offset-y
+			max-width="290px"
+			min-width="290px"
+			>
+			<template v-slot:activator="{ on }">
+				<v-text-field
+				v-model="dateFormatted"
+				label="Срок задачи"
+				persistent-hint
+				prepend-icon="event"
+				@blur="date = parseDate(dateFormatted)"
+				v-on="on"
+				></v-text-field>
+			</template>
+			<v-date-picker v-model="date" locale="ru-RU" first-day-of-week="1" no-title @input="menu1 = false"></v-date-picker>
+		</v-menu>
+		<div class="my-2">
+			<v-btn v-if="task.status !== 'выполнено'" middle dark type="submit" color="primary mx-4">Обновить</v-btn>
+			<v-btn v-if="task.status !== 'выполнено'" middle dark type="button"  @click="completeTask" color="success mx-4">Завершить</v-btn>
+			<v-btn middle dark type="button"  @click="deleteTask" color="error mx-4">Удалить</v-btn>
+		</div>
+	</v-col>
+</v-row>
 </form>
 </v-container>
 </div>
@@ -67,7 +72,7 @@
 // @ is an alias to /src
 
 export default {
-		metaInfo: {
+	metaInfo: {
 		title: 'Задача'
 	},
 	name: 'Home',
@@ -85,7 +90,7 @@ export default {
 		computedDateFormatted () {
 			return this.formatDate(this.date)
 		},
-				task(){
+		task(){
 			return this.$store.getters.taskById(+this.$route.params.id)
 		}
 	},
