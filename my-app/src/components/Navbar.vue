@@ -38,7 +38,7 @@
 </router-link>
 	<v-spacer />
 
-	<v-toolbar-title>Application</v-toolbar-title>
+	<v-toolbar-title>Мои задачи</v-toolbar-title>
 
 	<v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 </v-app-bar>
